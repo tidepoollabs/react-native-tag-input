@@ -322,19 +322,8 @@ class TagInput<T> extends React.PureComponent<Props<T>, State> {
   }
 
   onScrollViewContentSizeChange = (w: number, h: number) => {
-    if (this.contentHeight === h) {
-      return;
-    }
-    const nextWrapperHeight = Math.min(this.props.maxHeight, h);
-    if (nextWrapperHeight !== this.state.wrapperHeight) {
-      this.setState(
-        { wrapperHeight: nextWrapperHeight },
-        this.contentHeight < h ? this.scrollToEnd : undefined,
-      );
-    } else if (this.contentHeight < h) {
       this.scrollToEnd();
-    }
-    this.contentHeight = h;
+
   }
 
   onLayoutLastTag = (endPosOfTag: number) => {
